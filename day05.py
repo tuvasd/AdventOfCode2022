@@ -61,7 +61,6 @@ def part1(stack):
         string += re.sub('[^a-zA-Z]+', '', row.pop())
     print(string)
 
-
 file = sys.argv[1]
 liste, moves = lese(file)
 stack = buildStack(liste)
