@@ -8,7 +8,6 @@ def lese(filename):
     return myList
 
 
-# Part 1
 def doCommands(commands):
     current_path = []
     current_node = "root"
@@ -69,6 +68,7 @@ def buildedic(commands, directory, path):
             directory[add_path][1] += size
     return size, contains
 
+
 def sumDir(directory):
     sum = 0
     for key in directory:
@@ -77,26 +77,26 @@ def sumDir(directory):
             sum += size
     return sum
 
+
 def part2(directory):
     neededspace = abs(70000000 - 30000000 - directory["/root"][1])
 
     current_size = directory["/root"][1]
     current_select = "/root"
-    print(neededspace)
 
     for key in directory:
         size = directory[key][1]
-        if size > neededspace and size < current_size:
+        if neededspace < size < current_size:
             current_select = key
             current_size = size
     print(current_select, " - ", current_size)
+
 
 file = sys.argv[1]
 commands = lese(file)
 directory = doCommands(commands)
 
 part1 = sumDir(directory)
-print(part1)
+print("Part 1: ",part1)
 
 part2(directory)
-
