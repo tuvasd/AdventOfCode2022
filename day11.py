@@ -61,7 +61,6 @@ def makeMonkey(liste):
 def round(monkeyList):
     multi = calcMulti(monkeyList)
     for x in range(10000):
-        print(x)
         for monkey in monkeyList:
             monkeyRound(monkey, monkeyList,multi)
     nrInspections = []
