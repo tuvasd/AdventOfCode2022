@@ -21,6 +21,7 @@ class Monkey:
                 return itemValue*int(self.operation[2])
             else:
                 return itemValue + int(self.operation[2])
+
     def printMonkey(self):
         print("items: ", self.items)
         print("operation: ", self.operation)
@@ -48,6 +49,7 @@ def calcMulti(monkeyList):
     for monkey in monkeyList:
         sum= sum * monkey.testNr
     return sum
+
 def makeMonkey(liste):
     items = liste[1][2:]
     for i in range(len(items)):
@@ -58,11 +60,13 @@ def makeMonkey(liste):
     falseMonkey = int(liste[5][-1])
     monkey = Monkey(items, operation, testNr, trueMonkey, falseMonkey)
     return monkey
+
 def round(monkeyList):
     multi = calcMulti(monkeyList)
     for x in range(10000):
         for monkey in monkeyList:
             monkeyRound(monkey, monkeyList,multi)
+
     nrInspections = []
     for monkey in monkeyList:
         nrInspections.append(monkey.inspections)
