@@ -68,8 +68,10 @@ def dijkstra(dicGrid,start,end):
                 if new_cost < old_cost:
                     pq.put((new_cost, neighbor))
                     cost[neighbor] = new_cost
+        visited.add(current)
 
     return cost[end]
+
 def findA(grid):
     aTuples = []
     for i in range(len(grid)):
@@ -92,8 +94,6 @@ def part2(grid):
     dicGrid = buildGraph(grid)
     aTuples = findA(grid)
 
-    #print(aTuples)
-
     maxCost = float('inf')
     end_i, end_j = findletter(grid, "E")
 
@@ -104,8 +104,6 @@ def part2(grid):
             maxCost = cost
             #print("new cost: ", maxCost)
     print("part 2: ", maxCost)
-
-
 
 file = sys.argv[1]
 grid = lese(file)
