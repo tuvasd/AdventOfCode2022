@@ -1,5 +1,5 @@
 import sys
-from queue import PriorityQueue
+from functools import cmp_to_key
 
 def compare(l,r):
     if isinstance(l,int) and isinstance(r,int):
@@ -82,15 +82,16 @@ def part2(filename):
 
     print("part 2: " ,index_2*index_6)
 
-
-
-
-
-
-
-
+def part3(filename):
+    input = lese2(filename)
+    input = input[:len(input)-2]
+    markers = [[[6]], [[2]]]
+    packets_markers = sorted(input + markers, key=cmp_to_key(compare), reverse=True)
+    idx1, idx2 = [packets_markers.index(m) for m in markers]
+    print("2:", (idx1 + 1) * (idx2 + 1))
 
 file = sys.argv[1]
 input = lese(file)
 part1(input)
 part2(file)
+part3(file)
